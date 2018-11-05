@@ -11,8 +11,8 @@ using rvalue = rapidjson::GenericValue<rapidjson::UTF16<>>;
 namespace apicc {
 struct BaseModel {
   virtual ~BaseModel() {}
-  virtual void Serialize(rwriter &writer) = 0;          // writer creates json string from current and nested objects
-  virtual void Deserialize(const rvalue &document) = 0; // document created from json string
+  virtual void Serialize([[maybe_unused]] rwriter &writer) = 0;          // writer creates json string from current and nested objects
+  virtual void Deserialize([[maybe_unused]] const rvalue &document) = 0; // document created from json string
 
   template <class T> struct TVec { using value_type = T; };
 
